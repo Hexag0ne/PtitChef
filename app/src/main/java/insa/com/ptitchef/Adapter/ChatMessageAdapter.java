@@ -1,10 +1,10 @@
 package insa.com.ptitchef.Adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 import java.util.List;
 
 import insa.com.ptitchef.Pojo.ChatMessage;
-import insa.com.ptitchef.Pojo.MessageType;
 import insa.com.ptitchef.R;
+import insa.com.ptitchef.Utility.MyGridView;
 
 public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
     public ChatMessageAdapter(Context context, List<ChatMessage> data) {
@@ -34,16 +34,31 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         int viewType = getItemViewType(position);
-        Log.d("vt", ""+viewType);
+        TextView textView=null;
+
         switch (viewType) {
             case 0: //MessageType.MY_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
+                textView = (TextView) convertView.findViewById(R.id.text);
+                textView.setText(getItem(position).getContent());
                 break;
             case 1: //MessageType.BOT_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_bot_message, parent, false);
+                textView = (TextView) convertView.findViewById(R.id.text);
+                textView.setText(getItem(position).getContent());
                 break;
             case 2: //MessageType.LIST_MESSAGE
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_message, parent, false);
+                MyGridView gridview = (MyGridView) convertView.findViewById(R.id.gridview);
+                gridview.setAdapter(new ButtonAdapter(getContext(),this));
+
+                gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> parent, View v,
+                                            int position, long id) {
+                        Toast.makeText(getContext(), "" + position,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
                 break;
             case 3: //MessageType.MAP_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
@@ -55,8 +70,7 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
                 break;
         }
-        TextView textView = (TextView) convertView.findViewById(R.id.text);
-        textView.setText(getItem(position).getContent());
+
         convertView.findViewById(R.id.chatMessageView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
