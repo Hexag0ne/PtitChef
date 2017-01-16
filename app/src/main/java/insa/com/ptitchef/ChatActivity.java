@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.logging.Logger;
 
 import insa.com.ptitchef.Adapter.ChatMessageAdapter;
 import insa.com.ptitchef.Pojo.ChatMessage;
@@ -36,7 +35,8 @@ public class ChatActivity extends AppCompatActivity {
         mImageView = (ImageView) findViewById(R.id.iv_image);
         mAdapter = new ChatMessageAdapter(this, new ArrayList<ChatMessage>());
         mListView.setAdapter(mAdapter);
-
+        mimicOtherMessage("Salut !!", MessageType.BOT_MESSAGE);
+        mimicOtherMessage("Je suis là pour t'aider !!", MessageType.BOT_MESSAGE);
         //code for sending the message
         mButtonSend.setOnClickListener(new View.OnClickListener() {
             @Override
