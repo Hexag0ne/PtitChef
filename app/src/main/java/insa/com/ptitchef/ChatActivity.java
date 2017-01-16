@@ -3,19 +3,24 @@ package insa.com.ptitchef;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import insa.com.ptitchef.Adapter.ChatMessageAdapter;
 import insa.com.ptitchef.Pojo.ChatMessage;
-
+import insa.com.ptitchef.Pojo.MessageType;
 
 public class ChatActivity extends AppCompatActivity {
-
+    // TODO List, Map, Menu, Slider, Text
+    // TODO Splash Screen
+    // TODO Tutorial
+    // TODO Charte graphique
     private ListView mListView;
     private FloatingActionButton mButtonSend;
     private EditText mEditTextMessage;
@@ -32,7 +37,7 @@ public class ChatActivity extends AppCompatActivity {
         mAdapter = new ChatMessageAdapter(this, new ArrayList<ChatMessage>());
         mListView.setAdapter(mAdapter);
 
-//code for sending the message
+        //code for sending the message
         mButtonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,26 +49,29 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
     private void sendMessage(String message) {
-        ChatMessage chatMessage = new ChatMessage(message, true, false);
-        mAdapter.add(chatMessage);
-        //respond as Helloworld
-        mimicOtherMessage("HelloWorld");
-    }
-
-    private void mimicOtherMessage(String message) {
-        ChatMessage chatMessage = new ChatMessage(message, false, false);
-        mAdapter.add(chatMessage);
-    }
-
-    private void sendMessage() {
-        ChatMessage chatMessage = new ChatMessage(null, true, true);
+        ChatMessage chatMessage = new ChatMessage(message, MessageType.MY_MESSAGE);
         mAdapter.add(chatMessage);
 
-        mimicOtherMessage();
+        MessageType type = null;
+        String response = null;
+        switch (message) {
+            case "Hello":
+                response = "Hello you !";
+                type = MessageType.BOT_MESSAGE;
+                break;
+            case "Salut":
+                response = "Salut toi!";
+                type = MessageType.BOT_MESSAGE;
+                break;
+        }
+        Log.d("res", response);
+        Log.d("t", type.toString());
+        Log.d("m", message);
+        mimicOtherMessage(response, type);
     }
 
-    private void mimicOtherMessage() {
-        ChatMessage chatMessage = new ChatMessage(null, false, true);
+    private void mimicOtherMessage(String message, MessageType type) {
+        ChatMessage chatMessage = new ChatMessage(message, type);
         mAdapter.add(chatMessage);
     }
 }
