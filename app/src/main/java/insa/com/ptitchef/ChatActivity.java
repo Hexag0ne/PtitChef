@@ -17,7 +17,7 @@ import insa.com.ptitchef.Pojo.ChatMessage;
 import insa.com.ptitchef.Pojo.MessageType;
 
 public class ChatActivity extends AppCompatActivity {
-    // TODO List, Map, Menu, Slider, Text
+    // TODO List, Map, Menu, Slider
     // TODO Splash Screen
     // TODO Tutorial
     // TODO Charte graphique
@@ -64,9 +64,6 @@ public class ChatActivity extends AppCompatActivity {
                 type = MessageType.BOT_MESSAGE;
                 break;
         }
-        Log.d("res", response);
-        Log.d("t", type.toString());
-        Log.d("m", message);
         mimicOtherMessage(response, type);
     }
 
