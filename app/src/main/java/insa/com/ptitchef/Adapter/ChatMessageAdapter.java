@@ -13,7 +13,7 @@ import java.util.List;
 
 import insa.com.ptitchef.Pojo.ChatMessage;
 import insa.com.ptitchef.R;
-import insa.com.ptitchef.Utility.MyGridView;
+import insa.com.ptitchef.Utility.MyGridview;
 
 public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
     public ChatMessageAdapter(Context context, List<ChatMessage> data) {
@@ -49,7 +49,7 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 break;
             case 2: //MessageType.LIST_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_message, parent, false);
-                MyGridView gridview = (MyGridView) convertView.findViewById(R.id.gridview);
+                MyGridview gridview = (MyGridview) convertView.findViewById(R.id.gridview);
                 gridview.setAdapter(new ButtonAdapter(getContext(),this));
 
                 gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
