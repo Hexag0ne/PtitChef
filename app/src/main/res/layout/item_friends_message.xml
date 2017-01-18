@@ -1,30 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--item_bot_message.xml- for bot message -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="3dp">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selma" />
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
+    <me.himanshusoni.chatmessageview.ChatMessageView
+        android:id="@+id/chatMessageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Soukaina" />
+        app:cmv_arrowGravity="start"
+        app:cmv_arrowPosition="left"
+        app:cmv_backgroundColor="#E0E0E0"
+        app:cmv_backgroundColorPressed="#757575"
+        app:cmv_cornerRadius="3dp"
+        app:cmv_showArrow="true">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Juliette"
-        android:checked="true" />
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valider"
-        android:checked="true" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selma" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soukaina" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Juliette"
+                android:checked="true" />
+
+            <Button
+                android:text="Valider"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:padding="0dp"
+                android:id="@+id/buttonValider"
+                android:background="#BDBDBD"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_height="wrap_content"
+                android:elevation="0dp" />
+
+        </LinearLayout>
+    </me.himanshusoni.chatmessageview.ChatMessageView>
 
 </LinearLayout>
