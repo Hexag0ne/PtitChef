@@ -13,8 +13,8 @@
         app:cmv_arrowGravity="start"
         app:cmv_arrowMargin="3dp"
         app:cmv_arrowPosition="right"
-        app:cmv_backgroundColor="#88BABABA"
-        app:cmv_backgroundColorPressed="#FFBABABA"
+        app:cmv_backgroundColor="#FFCDD2"
+        app:cmv_backgroundColorPressed="#F44336"
         app:cmv_contentPadding="10dp"
         app:cmv_cornerRadius="3dp"
         app:cmv_showArrow="true">

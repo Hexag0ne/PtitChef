@@ -1,10 +1,10 @@
 package insa.com.ptitchef;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -30,6 +30,7 @@ public class ChatActivity extends AppCompatActivity {
     private EditText mEditTextMessage;
     private ImageView mImageView;
     private ChatMessageAdapter mAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,34 +41,27 @@ public class ChatActivity extends AppCompatActivity {
         mListView.setAdapter(mAdapter);
         mimicOtherMessage("Salut Patrick !!", MessageType.BOT_MESSAGE);
         mimicOtherMessage("Je suis là pour t'aider !!", MessageType.BOT_MESSAGE);
+        mimicOtherMessage("Pas de Problème ! \n Un resto de quel type ?", MessageType.BOT_MESSAGE);
+        String[] buttonNames={
+            "Universitaire",
+                    "Classe",
+                    "Snack",
+                    "Retour",
+
+        };
+        mAdapter.setButtonNames(buttonNames);
         mimicOtherMessage("",MessageType.LIST_MESSAGE);
 
-        // List of buttons
+
 
     }
-    public void sendMessage(String message) {
-        ChatMessage chatMessage = new ChatMessage(message, MessageType.MY_MESSAGE);
-        mAdapter.add(chatMessage);
 
-        MessageType type = null;
-        String response = null;
-        switch (message) {
-            case "Hello":
-                response = "Hello you !";
-                type = MessageType.BOT_MESSAGE;
-                break;
-            case "Salut":
-                response = "Salut toi!";
-                type = MessageType.BOT_MESSAGE;
-                break;
-        }
-        mimicOtherMessage(response, type);
-    }
 
     private void mimicOtherMessage(String message, MessageType type) {
         ChatMessage chatMessage = new ChatMessage(message, type);
         mAdapter.add(chatMessage);
     }
+
 
     private void setGridView(Context context){
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -82,4 +76,11 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getBaseContext(), ChatActivity.class);
+        startActivity(i);
+    }
+
 }

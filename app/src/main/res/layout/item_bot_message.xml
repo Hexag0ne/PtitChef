@@ -11,7 +11,7 @@
         android:id="@+id/iv_image"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/bot" />
+        android:src="@mipmap/ic_launcher" />
 
     <me.himanshusoni.chatmessageview.ChatMessageView
         android:id="@+id/chatMessageView"
@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         app:cmv_arrowGravity="start"
         app:cmv_arrowPosition="left"
-        app:cmv_backgroundColor="#8800bcd4"
-        app:cmv_backgroundColorPressed="#ff00bcd4"
+        app:cmv_backgroundColor="#9E9E9E"
+        app:cmv_backgroundColorPressed="#757575"
         app:cmv_cornerRadius="3dp"
         app:cmv_showArrow="true">
 

@@ -1,6 +1,5 @@
 package insa.com.ptitchef.Adapter;
 
-import android.util.Log;
 import android.view.View;
 
 import insa.com.ptitchef.Pojo.ChatMessage;
@@ -22,16 +21,38 @@ public class ButtonOnClickListener implements View.OnClickListener {
 
     }
 
+
     @Override
     public void onClick(View v)
     {
-        Log.d("buttonclicked", ""+buttonText);
-        ChatMessage chatMessage = new ChatMessage(buttonText, MessageType.MY_MESSAGE);
-        mAdapter.add(chatMessage);
-        /*switch(buttonText){
-            case "Universitaire":
 
-        }*/
+        mimicOtherMessage(buttonText, MessageType.MY_MESSAGE);
+        switch(buttonText){
+            case "Universitaire":
+                mimicOtherMessage("Voici les restos que j'ai dénichés pour toi !", MessageType.BOT_MESSAGE);
+                mimicOtherMessage("",MessageType.SLIDER_BUTTON_MESSAGE);
+                break;
+            case "Menu":
+                mimicOtherMessage("",MessageType.SLIDER_MESSAGE);
+                mimicOtherMessage("Souhaites-tu d'autres infos sur ce resto ?", MessageType.BOT_MESSAGE);
+                String[] buttonNames={
+                        "Localisation",
+                        "Non",
+                        "Retour",
+                 };
+                mAdapter.setButtonNames(buttonNames);
+                mimicOtherMessage("",MessageType.LIST_MESSAGE);
+                break;
+            case "Localisation":
+                mimicOtherMessage("",MessageType.MAP_MESSAGE);
+                break;
+
+        }
+    }
+
+    private void mimicOtherMessage(String message, MessageType type) {
+        ChatMessage chatMessage = new ChatMessage(message, type);
+        mAdapter.add(chatMessage);
     }
 
 }
