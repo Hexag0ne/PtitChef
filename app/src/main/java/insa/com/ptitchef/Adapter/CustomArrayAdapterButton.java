@@ -40,7 +40,8 @@ public class CustomArrayAdapterButton extends ArrayAdapter<CustomDataButton> {
                 buttonMenu.setOnClickListener(new ButtonOnClickListener(mAdapter,"Menu"));
                 final Button buttonMap = (Button) convertView.findViewById(R.id.buttonMap);
                 buttonMap.setOnClickListener(new ButtonOnClickListener(mAdapter,"Localisation"));
-                holder.textView2 = (TextView) convertView.findViewById(R.id.textView2);
+                final Button buttonRDV = (Button) convertView.findViewById(R.id.buttonRdv);
+                buttonRDV.setOnClickListener(new ButtonOnClickListener(mAdapter,"Organiser rdv"));
                 holder.textView1= (TextView) convertView.findViewById(R.id.textView1);
                 holder.imageView= (ImageView) convertView.findViewById(R.id.imageView);
                 convertView.setTag(holder);
@@ -53,7 +54,6 @@ public class CustomArrayAdapterButton extends ArrayAdapter<CustomDataButton> {
 
         holder.textViewTitle.setText(getItem(position).getmTextTitle());
         holder.textView1.setText(getItem(position).getmText1());
-        holder.textView2.setText(getItem(position).getmText2());
         holder.imageView.setImageDrawable(getContext().getResources().getDrawable(getItem(position).getMpicId()));
          return convertView;
     }
@@ -62,7 +62,6 @@ public class CustomArrayAdapterButton extends ArrayAdapter<CustomDataButton> {
     private static class Holder {
         public TextView textViewTitle;
         public TextView textView1;
-        public TextView textView2;
         public ImageView imageView;
     }
 }

@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:adjustViewBounds="true"/>
+        android:adjustViewBounds="true"
+        android:padding="5dp"/>
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -19,7 +20,7 @@
         android:padding="5dp"
         android:text="Simple String List"
         android:textSize="18sp"
-        android:textColor="#D32F2F"/>
+        android:textColor="#8C0011"/>
 
     <TextView
         android:id="@+id/textView1"

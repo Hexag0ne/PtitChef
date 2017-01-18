@@ -30,24 +30,24 @@ public class SplashActivity extends AppCompatActivity {
 
         this.fadeInViews();
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    // pass
-                }
-                return null;
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                // pass
             }
+            return null;
+        }
 
-            @Override
-            protected void onPostExecute(Void result) {
-                startActivity(new Intent(activity, IntroActivity.class));
-                activity.finish();
-            }
-        };
-        task.execute((Void[])null);
-    }
+        @Override
+        protected void onPostExecute(Void result) {
+            startActivity(new Intent(activity, IntroActivity.class));
+            activity.finish();
+        }
+    };
+    task.execute((Void[])null);
+}
 
     private void fadeInViews() {
         int duration = 2500;

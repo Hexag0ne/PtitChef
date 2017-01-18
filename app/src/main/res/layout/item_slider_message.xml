@@ -37,8 +37,8 @@
                 <com.meetme.android.horizontallistview.HorizontalListView
                     android:id="@+id/hlvCustomListWithDividerAndFadingEdge"
                     android:layout_width="match_parent"
-                    android:layout_height="420dp"
-                    android:divider="#e00"
+                    android:layout_height="350dp"
+                    android:divider="#ffffff"
                     android:fadingEdgeLength="5dp"
                     android:requiresFadingEdge="horizontal"
                     widget:dividerWidth="3dp" />

@@ -29,9 +29,9 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
             new CustomData(R.drawable.vegetarian, "Végétarien","Entrée: salade","Plat: Bobun au Tofu","Dessert: île flottante"),
     };
     private CustomDataButton[] mCustomDataButton = new CustomDataButton[] {
-            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
-            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
-            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
+            new CustomDataButton(R.drawable.pasted_image, "Restaurant Universitaire","12h-14h | attente 7min","File d'attente 7min"),
+            new CustomDataButton(R.drawable.pasted_image, "Restaurant Universitaire","12h-14h | attente 7min","File d'attente 7min"),
+            new CustomDataButton(R.drawable.pasted_image, "Restaurant Universitaire","12h-14h | attente 7min","File d'attente 7min"),
     };
 
     public String[] getButtonNames() {

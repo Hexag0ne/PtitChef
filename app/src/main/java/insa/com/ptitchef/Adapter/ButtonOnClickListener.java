@@ -1,5 +1,6 @@
 package insa.com.ptitchef.Adapter;
 
+import android.os.AsyncTask;
 import android.view.View;
 
 import insa.com.ptitchef.ChatActivity;
@@ -53,13 +54,30 @@ public class ButtonOnClickListener implements View.OnClickListener {
                 mAdapter.setButtonNames(buttonNames1);
                 mimicOtherMessage("",MessageType.LIST_MESSAGE);
                 break;
-            case "Rejoins tes amis":
+            case "Organiser rdv":
                 mimicOtherMessage("Ok, je m'occupe de tout",MessageType.BOT_MESSAGE);
                 mimicOtherMessage("",MessageType.FRIENDS_MESSAGE);
                 break;
             case "Valider":
                 mimicOtherMessage("Je les ai invités !",MessageType.BOT_MESSAGE);
                 mimicOtherMessage("Je te tiens au courant de leur réponses ;)",MessageType.BOT_MESSAGE);
+                AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(6000);
+                        } catch (InterruptedException e) {
+                            // pass
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        mimicOtherMessage("Juliette a accepté votre invitation !",MessageType.BOT_MESSAGE);
+                    }
+                };
+                task.execute((Void[])null);
                 break;
         }
     }

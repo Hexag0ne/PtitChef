@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ptitchef_text"/>
+                android:src="@drawable/ptitchef_text"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/textViewTitle"
