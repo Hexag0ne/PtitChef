@@ -61,4 +61,10 @@
         </LinearLayout>
     </me.himanshusoni.chatmessageview.ChatMessageView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valider"
+        android:checked="true" />
+
 </LinearLayout>

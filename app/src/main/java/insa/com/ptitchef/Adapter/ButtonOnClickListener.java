@@ -2,12 +2,9 @@ package insa.com.ptitchef.Adapter;
 
 import android.view.View;
 
+import insa.com.ptitchef.ChatActivity;
 import insa.com.ptitchef.Pojo.ChatMessage;
 import insa.com.ptitchef.Pojo.MessageType;
-
-/**
- * Created by user on 16/01/2017.
- */
 
 public class ButtonOnClickListener implements View.OnClickListener {
 
@@ -18,7 +15,6 @@ public class ButtonOnClickListener implements View.OnClickListener {
     {
         this.buttonText = buttonText;
         this.mAdapter = mAdapter;
-
     }
 
 
@@ -70,6 +66,8 @@ public class ButtonOnClickListener implements View.OnClickListener {
 
     private void mimicOtherMessage(String message, MessageType type) {
         ChatMessage chatMessage = new ChatMessage(message, type);
+        ChatActivity activity = (ChatActivity) mAdapter.getContext();
+        activity.updateChat();
         mAdapter.add(chatMessage);
     }
 

@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import insa.com.ptitchef.Adapter.ButtonAdapter;
 import insa.com.ptitchef.Adapter.ChatMessageAdapter;
@@ -62,6 +63,16 @@ public class ChatActivity extends Activity {
                                     int position, long id) {
                 Toast.makeText(ChatActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void updateChat() {
+        mListView.post(new Runnable() {
+            @Override
+            public void run() {
+                // Select the last row so it will scroll into view...
+                mListView.setSelection(mAdapter.getCount() - 1);
             }
         });
     }
