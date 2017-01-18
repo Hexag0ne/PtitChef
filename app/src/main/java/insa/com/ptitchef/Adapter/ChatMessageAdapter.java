@@ -115,6 +115,8 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 break;
             case 7: //MessageType.FRIENDS_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_friends_message, parent, false);
+                Button buttonValider = (Button) convertView.findViewById(R.id.buttonValider);
+                buttonValider.setOnClickListener(new ButtonOnClickListener(this,(String)buttonValider.getText()));
                 break;
         }
 

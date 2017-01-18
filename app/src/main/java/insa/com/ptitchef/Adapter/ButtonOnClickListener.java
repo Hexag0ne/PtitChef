@@ -61,6 +61,10 @@ public class ButtonOnClickListener implements View.OnClickListener {
                 mimicOtherMessage("Ok, je m'occupe de tout",MessageType.BOT_MESSAGE);
                 mimicOtherMessage("",MessageType.FRIENDS_MESSAGE);
                 break;
+            case "Valider":
+                mimicOtherMessage("Je les ai invités !",MessageType.BOT_MESSAGE);
+                mimicOtherMessage("Je te tiens au courant de leur réponses ;)",MessageType.BOT_MESSAGE);
+                break;
         }
     }
 
