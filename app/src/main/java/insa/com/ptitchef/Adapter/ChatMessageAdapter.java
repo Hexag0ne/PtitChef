@@ -106,7 +106,9 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 mHlvCustomListWithDividerAndFadingEdge = (HorizontalListView) convertView.findViewById(R.id.hlvCustomListWithDividerAndFadingEdge);
                 setupCustomListsButton();
                 break;
-
+            case 7: //MessageType.FRIENDS_MESSAGE
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_friends_message, parent, false);
+                break;
         }
 
         return convertView;

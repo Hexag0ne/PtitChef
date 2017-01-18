@@ -46,6 +46,9 @@ public class ButtonOnClickListener implements View.OnClickListener {
             case "Localisation":
                 mimicOtherMessage("",MessageType.MAP_MESSAGE);
                 break;
+            case "Rejoins tes amis":
+                mimicOtherMessage("Ok, je m'occupe de tout",MessageType.BOT_MESSAGE);
+                mimicOtherMessage("",MessageType.FRIENDS_MESSAGE);
 
         }
     }
