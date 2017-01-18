@@ -16,17 +16,19 @@ public class ButtonAdapter extends BaseAdapter {
 
     private Context mContext;
     private ChatMessageAdapter mAdapter;
-    public String[] buttonNames = {
+    private String[] buttonNames;
+    /*public String[] buttonNames = {
             "Universitaire",
             "Classe",
             "Snack",
             "Retour",
 
-    };
+    };*/
     // Gets the context so it can be used later
     public ButtonAdapter(Context c, ChatMessageAdapter mAdapter) {
         this.mContext = c;
         this.mAdapter=mAdapter;
+
     }
 
     // Total number of things contained within the adapter
@@ -54,6 +56,7 @@ public class ButtonAdapter extends BaseAdapter {
             btn = new Button(mContext);
             btn.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT,GridView.LayoutParams.WRAP_CONTENT));
             btn.setPadding(8, 8, 8, 8);
+
         }
         else {
             btn = (Button) convertView;
@@ -63,9 +66,18 @@ public class ButtonAdapter extends BaseAdapter {
         btn.setOnClickListener(new ButtonOnClickListener(mAdapter,buttonNames[position]));
         btn.setText(buttonNames[position]);
         btn.setTextColor(Color.WHITE);
+        btn.setBackgroundColor(Color.parseColor("#757575"));
         btn.setId(position);
 
         return btn;
+    }
+
+    public String[] getButtonNames() {
+        return buttonNames;
+    }
+
+    public void setButtonNames(String[] buttonNames) {
+        this.buttonNames = buttonNames;
     }
 }
 

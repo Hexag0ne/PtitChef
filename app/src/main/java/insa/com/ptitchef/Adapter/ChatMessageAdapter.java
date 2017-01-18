@@ -9,20 +9,48 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.meetme.android.horizontallistview.HorizontalListView;
+
 import java.util.List;
 
 import insa.com.ptitchef.Pojo.ChatMessage;
+import insa.com.ptitchef.Pojo.CustomData;
+import insa.com.ptitchef.Pojo.CustomDataButton;
 import insa.com.ptitchef.R;
 import insa.com.ptitchef.Utility.MyGridview;
 
 public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
+
+    private HorizontalListView mHlvCustomListWithDividerAndFadingEdge;
+    private CustomData[] mCustomData = new CustomData[] {
+            new CustomData(R.drawable.vegetarian, "Végétarien","Entrée: salade","Plat: Bobun au Tofu","Dessert: île flottante"),
+            new CustomData(R.drawable.vegetarian, "Végétarien","Entrée: salade","Plat: Bobun au Tofu","Dessert: île flottante"),
+            new CustomData(R.drawable.vegetarian, "Végétarien","Entrée: salade","Plat: Bobun au Tofu","Dessert: île flottante"),
+    };
+    private CustomDataButton[] mCustomDataButton = new CustomDataButton[] {
+            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
+            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
+            new CustomDataButton(R.drawable.restaurant_universitaire, "Restaurant Universitaire","Horaires 12h-14h","File d'attente 7min"),
+    };
+
+    public String[] getButtonNames() {
+        return buttonNames;
+    }
+
+    public void setButtonNames(String[] buttonNames) {
+        this.buttonNames = buttonNames;
+    }
+
+    private String[] buttonNames;
+
     public ChatMessageAdapter(Context context, List<ChatMessage> data) {
         super(context, R.layout.item_mine_message, data);
     }
 
+
     @Override
     public int getViewTypeCount() {
-        return 6;
+        return 90;
     }
 
     @Override
@@ -50,7 +78,9 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
             case 2: //MessageType.LIST_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_message, parent, false);
                 MyGridview gridview = (MyGridview) convertView.findViewById(R.id.gridview);
-                gridview.setAdapter(new ButtonAdapter(getContext(),this));
+                ButtonAdapter btnAdapter = new ButtonAdapter(getContext(),this);
+                btnAdapter.setButtonNames(buttonNames);
+                gridview.setAdapter(btnAdapter);
 
                 gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View v,
@@ -61,23 +91,41 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 });
                 break;
             case 3: //MessageType.MAP_MESSAGE
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_map_message, parent, false);
                 break;
             case 4: //MessageType.MENU_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
                 break;
             case 5: //MessageType.SLIDER_MESSAGE
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_slider_message, parent, false);
+                mHlvCustomListWithDividerAndFadingEdge = (HorizontalListView) convertView.findViewById(R.id.hlvCustomListWithDividerAndFadingEdge);
+                setupCustomLists();
                 break;
+            case 6: //MessageType.SLIDER_BUTTON_MESSAGE
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_slider_message, parent, false);
+                mHlvCustomListWithDividerAndFadingEdge = (HorizontalListView) convertView.findViewById(R.id.hlvCustomListWithDividerAndFadingEdge);
+                setupCustomListsButton();
+                break;
+
         }
 
-        convertView.findViewById(R.id.chatMessageView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "onClick", Toast.LENGTH_LONG).show();
-            }
-        });
         return convertView;
+    }
+
+    private void setupCustomLists() {
+        // Make an array adapter using the built in android layout to render a list of strings
+        CustomArrayAdapter adapter = new CustomArrayAdapter(getContext(), mCustomData);
+
+        // Assign adapter to HorizontalListView
+        mHlvCustomListWithDividerAndFadingEdge.setAdapter(adapter);
+    }
+
+    private void setupCustomListsButton() {
+        // Make an array adapter using the built in android layout to render a list of strings
+        CustomArrayAdapterButton adapter = new CustomArrayAdapterButton(getContext(), mCustomDataButton,this);
+
+        // Assign adapter to HorizontalListView
+        mHlvCustomListWithDividerAndFadingEdge.setAdapter(adapter);
     }
 }
 
