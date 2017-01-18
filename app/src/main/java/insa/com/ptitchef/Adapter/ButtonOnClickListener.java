@@ -46,6 +46,18 @@ public class ButtonOnClickListener implements View.OnClickListener {
             case "Localisation":
                 mimicOtherMessage("",MessageType.MAP_MESSAGE);
                 break;
+            case "Trouver un resto":
+                mimicOtherMessage("Pas de Problème ! \n Un resto de quel type ?", MessageType.BOT_MESSAGE);
+                String[] buttonNames1={
+                        "Universitaire",
+                        "Classe",
+                        "Snack",
+                        "Retour",
+
+                };
+                mAdapter.setButtonNames(buttonNames1);
+                mimicOtherMessage("",MessageType.LIST_MESSAGE);
+                break;
 
         }
     }
