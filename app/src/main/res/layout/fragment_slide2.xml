@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/accent"
+    tools:context="insa.com.ptitchef.IntroActivity.IntroActivity">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Retrouve tes amis!"
+        android:id="@+id/textView4"
+        android:layout_marginTop="123dp"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:src="@drawable/group"
+        android:layout_below="@id/textView4"
+        android:id="@+id/group"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="30dp"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="23dp"
+        android:gravity="center"
+        android:text="Interagis avec PtitChef et demande lui dans quels restos se trouvent tes amis"
+        android:id="@+id/textView"
+        android:textSize="18dp"
+        android:layout_below="@+id/group"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
