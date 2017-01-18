@@ -34,7 +34,7 @@
         android:textColor="@android:color/white"
         android:layout_marginTop="23dp"
         android:gravity="center"
-        android:text="Interagis avec PtitChef et demande lui dans quels restos se trouvent tes amis"
+        android:text="Orgqnise un rendez-vous dans le resto de ton choix avec tes amis !"
         android:id="@+id/textView"
         android:textSize="18dp"
         android:layout_below="@+id/group"
