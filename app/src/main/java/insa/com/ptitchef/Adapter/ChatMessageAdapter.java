@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -94,7 +95,13 @@ public class ChatMessageAdapter extends ArrayAdapter<ChatMessage> {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_map_message, parent, false);
                 break;
             case 4: //MessageType.MENU_MESSAGE
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_mine_message, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.custom_data_buttons_view, parent, false);
+                Button buttonResto = (Button) convertView.findViewById(R.id.buttonResto);
+                buttonResto.setOnClickListener(new ButtonOnClickListener(this,(String)buttonResto.getText()));
+                Button buttonAmis = (Button) convertView.findViewById(R.id.buttonAmis);
+                buttonAmis.setOnClickListener(new ButtonOnClickListener(this,(String)buttonAmis.getText()));
+                Button button = (Button) convertView.findViewById(R.id.buttonVite);
+                button.setOnClickListener(new ButtonOnClickListener(this,(String)button.getText()));
                 break;
             case 5: //MessageType.SLIDER_MESSAGE
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_slider_message, parent, false);

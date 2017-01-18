@@ -1,10 +1,10 @@
 package insa.com.ptitchef;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -20,7 +20,7 @@ import insa.com.ptitchef.Adapter.ChatMessageAdapter;
 import insa.com.ptitchef.Pojo.ChatMessage;
 import insa.com.ptitchef.Pojo.MessageType;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends Activity {
     // TODO List, Map, Menu, Slider
     // TODO Splash Screen
     // TODO Tutorial
@@ -41,18 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         mListView.setAdapter(mAdapter);
         mimicOtherMessage("Salut Patrick !!", MessageType.BOT_MESSAGE);
         mimicOtherMessage("Je suis là pour t'aider !!", MessageType.BOT_MESSAGE);
-        mimicOtherMessage("Pas de Problème ! \n Un resto de quel type ?", MessageType.BOT_MESSAGE);
-        String[] buttonNames={
-            "Universitaire",
-                    "Classe",
-                    "Snack",
-                    "Retour",
-
-        };
-        mAdapter.setButtonNames(buttonNames);
-        mimicOtherMessage("",MessageType.LIST_MESSAGE);
-
-
+        mimicOtherMessage("",MessageType.MENU_MESSAGE);
 
     }
 
